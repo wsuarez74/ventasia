@@ -41,7 +41,7 @@ async def human_query_to_sql(human_query: str, database: BaseDatabase):
 
     # Enviamos el esquema completo con la consulta al LLM
     response = openai.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-3.5-turbo",
         response_format={"type": "json_object"},
         messages=[
             {"role": "system", "content": system_message},
@@ -67,7 +67,7 @@ async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | 
     """
 
     response = openai.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": system_message},
         ],
